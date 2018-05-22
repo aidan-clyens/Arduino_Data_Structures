@@ -1,0 +1,22 @@
+##############################
+# Queue Keywords
+##############################
+
+##############################
+# Data Types (KEYWORD1)
+##############################
+
+Queue	KEYWORD1
+
+##############################
+# Functions (KEYWORD2)
+##############################
+
+size		    KEYWORD2
+empty		    KEYWORD2
+front		    KEYWORD2
+back		    KEYWORD2
+push    	  KEYWORD2
+pop     	  KEYWORD2
+clear		    KEYWORD2
+print_queue	KEYWORD2

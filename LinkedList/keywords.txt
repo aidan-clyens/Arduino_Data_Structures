@@ -1,0 +1,32 @@
+##############################
+# Linked List Keywords
+##############################
+
+##############################
+# Data Types (KEYWORD1)
+##############################
+
+LinkedList	KEYWORD1
+Node		          KEYWORD1
+
+##############################
+# Functions (KEYWORD2)
+##############################
+
+value		    KEYWORD2
+next		    KEYWORD2
+previous	  KEYWORD2
+size		    KEYWORD2
+empty		    KEYWORD2
+front		    KEYWORD2
+back		    KEYWORD2
+begin		    KEYWORD2
+end		      KEYWORD2
+rbegin		  KEYWORD2
+rend		    KEYWORD2
+push_front	KEYWORD2
+push_back	  KEYWORD2
+pop_front	  KEYWORD2
+pop_back	  KEYWORD2
+clear		    KEYWORD2
+print_list	KEYWORD2
