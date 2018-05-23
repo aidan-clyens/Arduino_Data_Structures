@@ -3,7 +3,7 @@ This is a Queue class which is built using a custom Linked List, which was writt
 
 ## Getting Started
 1. Move the ListBasedQueue folder to your Arduino libraries folder, contained in your sketchbook folder.
-2. Use `#include <Queue.h>` at the top of your sketch or click Sketch -> Include Library -> QueueArduino.
+2. Use `#include <Queue.h>` at the top of your sketch or click Sketch -> Include Library -> ListBasedQueue.
 
 ## Functionality
 Constructors:
