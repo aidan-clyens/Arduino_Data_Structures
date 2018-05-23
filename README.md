@@ -8,6 +8,7 @@ These are various data structures written in C++ designed specifically for use w
 
 ## Data Structures
 - Linked List: LinkedList
+- Queue based on arrays: ArrayBasedQueue
 - Queue based on Linked List: ListBasedQueue
 
 ## Author
