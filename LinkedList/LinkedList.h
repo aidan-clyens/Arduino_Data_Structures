@@ -12,7 +12,7 @@
 #ifndef LINKED_LIST_ARDUINO_H
 #define  LINKED_LIST_ARDUINO_H
 
-#include "Arduino.h"
+// #include "Arduino.h"
 
 template <typename Type>
 class LinkedList {
@@ -194,12 +194,12 @@ void LinkedList<Type>::clear() {
 //  Prints the list using Arduino serial communication
 template <typename Type>
 void LinkedList<Type>::print_list() {
-  Serial.print("head -> ");
+  std::cout << "head -> ";
   for (typename LinkedList<Type>::Node *ptr = begin(); ptr != end(); ptr = ptr->next()) {
-    Serial.print(ptr->value());
-    Serial.print(" -> ");
+    std::cout << ptr->value();
+    std::cout << " -> ";
   }
-  Serial.println("tail");
+  std::cout << "tail" << std::endl;
 }
 
 /*******************************/
