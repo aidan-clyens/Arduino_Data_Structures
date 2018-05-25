@@ -35,10 +35,6 @@ void setup() {
   //  Print the linked queue to the serial monitor
   queue.print_queue();
 
-  //  Create a copy of the original queue
-  Queue<int> queue_copy(queue);
-  queue_copy.print_queue();
-
   //  Clear all elements in the original queue
   queue.clear();
   queue.print_queue();

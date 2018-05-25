@@ -10,6 +10,7 @@ These are various data structures written in C++ designed specifically for use w
 - Linked List: LinkedList
 - Queue based on arrays: ArrayBasedQueue
 - Queue based on Linked List: ListBasedQueue
+- Max Heap: MaxHeap (Not currently working)
 
 ## Author
 Aidan Clyens

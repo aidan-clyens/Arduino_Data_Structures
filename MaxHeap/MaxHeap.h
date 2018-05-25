@@ -4,6 +4,8 @@
 /*    To be used with Arduino, so this uses no C++ standard
 /*    library functions.
 /*
+/*    NOTE: DOES NOT WORK
+/*
 /*    Aidan Clyens
 /*    May 25, 2018
 /***********************************************************/
@@ -20,9 +22,9 @@ class MaxHeap {
     ~MaxHeap();
 
     //  Accessor Functions
-    Type top() const;
-    bool empty() const;
     int size() const;
+    bool empty() const;
+    Type top() const;
     int capacity() const;
 
     //  Mutator Functions
