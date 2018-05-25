@@ -44,7 +44,6 @@ class LinkedList {
     Node* end() const;
     Node* rbegin() const;
     Node* rend() const;
-    Node* find() const;
 
     //  Mutator Functions
     void push_front( Type const & );
