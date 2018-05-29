@@ -7,7 +7,9 @@ These are various data structures written in C++ designed specifically for use w
 3. Read individual README.
 
 ## Data Structures
+List of Data Structures, name on the left and folder name on the right.
 - Linked List: LinkedList
+- Vector: Vector
 - Queue based on arrays: ArrayBasedQueue
 - Queue based on Linked List: ListBasedQueue
 
