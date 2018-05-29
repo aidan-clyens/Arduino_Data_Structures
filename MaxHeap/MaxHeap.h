@@ -13,7 +13,7 @@
 #ifndef MAX_HEAP_ARDUINO_H
 #define MAX_HEAP_ARDUINO_H
 
-#include "Arduino.h"
+// #include "Arduino.h"
 
 template <typename Type>
 class MaxHeap {
@@ -30,6 +30,8 @@ class MaxHeap {
     //  Mutator Functions
     void push( Type const & );
     void pop();
+
+    void print_heap();
 
   private:
     void heapify( Type * );
@@ -98,9 +100,7 @@ void MaxHeap<Type>::push( Type const &obj ) {
 //  Pop an element from the top of the heap and percolate all children up appropriately
 template <typename Type>
 void MaxHeap<Type>::pop() {
-  heap[0] = 0;
   heapify(heap - 1);
-
   --heap_size;
 }
 
@@ -135,6 +135,14 @@ void MaxHeap<Type>::swap(Type &a, Type &b) {
   Type temp = a;
   a = b;
   b = temp;
+}
+
+template <typename Type>
+void MaxHeap<Type>::print_heap() {
+  for (int i = 0; i < heap_size; ++i) {
+    std::cout << heap[i] << " ";
+  }
+  std::cout << std::endl;
 }
 
 #endif
