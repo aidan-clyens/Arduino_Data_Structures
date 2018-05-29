@@ -16,7 +16,6 @@ Size Accessor Functions:
 
 Element Access Functions:
 - Type at
-- Type operator[]
 - Type front
 - Type back
 
