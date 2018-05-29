@@ -1,0 +1,23 @@
+##############################
+# Vector Keywords
+##############################
+
+##############################
+# Data Types (KEYWORD1)
+##############################
+
+vector      	KEYWORD1
+
+##############################
+# Functions (KEYWORD2)
+##############################
+
+size		      KEYWORD2
+capacity      KEYWORD2
+empty		      KEYWORD2
+front		      KEYWORD2
+back		      KEYWORD2
+at            KEYWORD2
+push_back	    KEYWORD2
+pop_back	    KEYWORD2
+print_vector	KEYWORD2
