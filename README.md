@@ -12,6 +12,7 @@ List of data structures contained in this repo:
 - Vector
 - Queue based on Arrays
 - Queue based on Linked List
+- Max Heap
 
 ## Author
 Aidan Clyens
