@@ -26,6 +26,7 @@ class vector {
 
     //  Element Access
     Type at( int ) const;
+    Type &operator[]( int ) const;
     Type front() const;
     Type back() const;
 
@@ -103,6 +104,14 @@ bool vector<Type>::empty() const {
  */
 template <typename Type>
 Type vector<Type>::at(int i) const {
+  return array[i];
+}
+
+/* operator[]
+ * Returns the value at the specifed index, the same as the at() function.
+ */
+template <typename Type>
+Type &vector<Type>::operator[](int i) const {
   return array[i];
 }
 
