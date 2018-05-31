@@ -1,0 +1,21 @@
+##############################
+# MaxHeap Keywords
+##############################
+
+##############################
+# Data Types (KEYWORD1)
+##############################
+
+MaxHeap      	KEYWORD1
+
+##############################
+# Functions (KEYWORD2)
+##############################
+
+size		      KEYWORD2
+empty		      KEYWORD2
+top 		      KEYWORD2
+push    	    KEYWORD2
+pop     	    KEYWORD2
+print_heap  	KEYWORD2
+is_max_heap   KEYWORD2
