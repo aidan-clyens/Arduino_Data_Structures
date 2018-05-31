@@ -164,8 +164,8 @@ void vector<Type>::pop_back() {
  */
  template <typename Type>
  void vector<Type>::print_vector() {
-   for (int i = 0; i < vec.size(); ++i) {
-     Serial.print(vec.at(i));
+   for (int i = 0; i < array.size(); ++i) {
+     Serial.print(array.at(i));
      Serial.print(" ");
    }
    Serial.println();
