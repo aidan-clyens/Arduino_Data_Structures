@@ -8,11 +8,11 @@ These are various data structures written in C++ designed specifically for use w
 
 ## Data Structures
 List of data structures contained in this repo:
-- Linked List
-- Vector
-- Queue based on Arrays
-- Queue based on Linked List
-- Max Heap
+- [Linked List](LinkedList)
+- [Vector](Vector)
+- [Queue based on Arrays](ArrayBasedQueue)
+- [Queue based on Linked List](ListBasedQueue)
+- [Max Heap](MaxHeap)
 
 ## Author
 Aidan Clyens
