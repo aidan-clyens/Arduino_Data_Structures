@@ -25,10 +25,10 @@ class vector {
     bool empty() const;
 
     //  Element Access
-    Type at( int ) const;
+    Type &at( int ) const;
     Type &operator[]( int ) const;
-    Type front() const;
-    Type back() const;
+    Type &front() const;
+    Type &back() const;
 
     //  Modifiers
     void push_back( const Type & );
@@ -103,7 +103,7 @@ bool vector<Type>::empty() const {
  * Returns the value at the specified index.
  */
 template <typename Type>
-Type vector<Type>::at(int i) const {
+Type &vector<Type>::at(int i) const {
   return array[i];
 }
 
@@ -119,7 +119,7 @@ Type &vector<Type>::operator[](int i) const {
  * Return the element at the back of the vector.
  */
 template <typename Type>
-Type vector<Type>::front() const {
+Type &vector<Type>::front() const {
   return array[0];
 }
 
@@ -127,7 +127,7 @@ Type vector<Type>::front() const {
  * Return the element at the back of the vector.
  */
 template <typename Type>
-Type vector<Type>::back() const {
+Type &vector<Type>::back() const {
   return array[vector_size - 1];
 }
 
