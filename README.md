@@ -13,6 +13,7 @@ List of data structures contained in this repo:
 - [Queue based on Arrays](ArrayBasedQueue)
 - [Queue based on Linked List](ListBasedQueue)
 - [Max Heap](MaxHeap)
+- [Hash Table](HashTable)
 
 ## Author
 Aidan Clyens
