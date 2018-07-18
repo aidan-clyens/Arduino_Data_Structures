@@ -1,0 +1,23 @@
+##############################
+# Hash Table Keywords
+##############################
+
+##############################
+# Data Types (KEYWORD1)
+##############################
+
+HashTable   KEYWORD1
+
+##############################
+# Functions (KEYWORD2)
+##############################
+
+size        KEYWORD2
+capacity    KEYWORD2
+empty       KEYWORD2
+at          KEYWORD2
+insert      KEYWORD2
+erase       KEYWORD2
+clear       KEYWORD2
+load_factor KEYWORD2
+print       KEYWORD2
