@@ -28,12 +28,14 @@ Misc. Functions:
 - void print
 
 ## Hash Function
-`int HashTable<Type>::hash(Type const &obj) const {
+`
+int HashTable<Type>::hash(Type const &obj) const {
     int n = static_cast<int>(obj);
     int hash = n % array_capacity;
 
     return (hash >= 0) ? hash : hash + array_capacity;
-}`
+}
+`
 
 ## Author
 Copyright (c) 2018 Aidan Clyens
