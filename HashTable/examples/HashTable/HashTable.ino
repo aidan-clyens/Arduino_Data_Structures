@@ -51,7 +51,7 @@ void setup() {
 
     //  Access a specific bin of the hash table
     Serial.print("The contents of the bin at index 10 is: ");
-    Serial.print(table.at(10));
+    Serial.println(table.at(10));
 
     //  Get the load factor of the hash table
     Serial.print("The load factor of the hash table is: ");

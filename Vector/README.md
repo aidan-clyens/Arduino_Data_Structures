@@ -25,7 +25,7 @@ Modifier Functions:
 - void pop_back
 
 Misc:
-- void print_vector
+- void print
 
 ## Author
 Copyright (c) 2018 Aidan Clyens

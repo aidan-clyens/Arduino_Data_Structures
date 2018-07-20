@@ -35,7 +35,7 @@ class vector {
     void pop_back();
 
     //  Misc.
-    void print_vector();
+    void print();
 
   private:
     void double_capacity();
@@ -104,7 +104,10 @@ bool vector<Type>::empty() const {
  */
 template <typename Type>
 Type &vector<Type>::at(int i) const {
-  return array[i];
+    if (i >= vector_size) {
+        //  TODO: Throw OutOfRange exception
+    }
+    return array[i];
 }
 
 /* operator[]
@@ -112,6 +115,9 @@ Type &vector<Type>::at(int i) const {
  */
 template <typename Type>
 Type &vector<Type>::operator[](int i) const {
+  if (i >= vector_size) {
+      //    TDOD: Throw OutOfRange exception
+  }
   return array[i];
 }
 
@@ -163,7 +169,7 @@ void vector<Type>::pop_back() {
  * Print the vector contents.
  */
  template <typename Type>
- void vector<Type>::print_vector() {
+ void vector<Type>::print() {
    for (int i = 0; i < size(); ++i) {
      Serial.print(at(i));
      Serial.print(" ");

@@ -221,7 +221,7 @@ void HashTable<Type>::print() {
     for (int i = 0; i < array_capacity; ++i) {
         if (occupied[i] == UNOCCUPIED) Serial.print("U");
         else if (occupied[i] == ERASED) Serial.print("E");
-        else if (occupied[i] == OCCUPIED) Serial.print(array[i])
+        else if (occupied[i] == OCCUPIED) Serial.print(array[i]);
 
         Serial.print(" ");
     }
