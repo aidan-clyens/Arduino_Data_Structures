@@ -16,4 +16,4 @@ List of data structures contained in this repo:
 - [Hash Table](HashTable)
 
 ## Author
-Aidan Clyens
+Copyright 2018 Aidan Clyens
