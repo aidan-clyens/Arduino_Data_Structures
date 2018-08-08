@@ -1,13 +1,13 @@
 /****************************************************
- *  Queue Example
+ *  QueueArray Example
  *
  *  Aidan Clyens
  *  May 17, 2018
  */
-#include <Queue.h>
+#include <QueueArray.h>
 
-//  Create a queue of type 'int'
-Queue<int> queue;
+//  Create a QueueArray of type 'int'
+QueueArray<int> queue;
 
 void setup() {
   //  Push new elements to the queue
@@ -34,10 +34,6 @@ void setup() {
   Serial.println(queue.back());
   //  Print the linked queue to the serial monitor
   queue.print_queue();
-
-  //  Create a copy of the original queue
-  Queue<int> queue_copy(queue);
-  queue_copy.print_queue();
 
   //  Clear all elements in the original queue
   queue.clear();

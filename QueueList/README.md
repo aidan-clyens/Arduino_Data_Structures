@@ -1,9 +1,9 @@
-# Linked List Based Queue Arduino
+# Queue Using Linked Lists Arduino
 This is a Queue class which is built using a custom Linked List, which was written using C++ to be used with Arduino sketches.
 
 ## Getting Started
-1. Move the ListBasedQueue folder to your Arduino libraries folder, contained in your sketchbook folder.
-2. Use `#include <Queue.h>` at the top of your sketch or click Sketch -> Include Library -> ListBasedQueue.
+1. Move the QueueList folder to your Arduino libraries folder, contained in your sketchbook folder.
+2. Use `#include <QueueList.h>` at the top of your sketch or click Sketch -> Include Library -> QueueList.
 
 ## Functionality
 Constructors:

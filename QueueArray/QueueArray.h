@@ -1,5 +1,5 @@
 /***********************************************************/
-/*    Queue
+/*    QueueArray
 /*
 /*    This is an implementation using arrays. Currently, there
 /*    is no dynamic array resizing.
@@ -9,16 +9,16 @@
 /*    Aidan Clyens
 /*    May 23, 2018
 /***********************************************************/
-#ifndef QUEUE_ARDUINO_H
-#define QUEUE_ARDUINO_H
+#ifndef QUEUE_ARRAY_ARDUINO_H
+#define QUEUE_ARRAY_ARDUINO_H
 
 #include "Arduino.h"
 
 template <typename Type>
-class Queue {
+class QueueArray {
   public:
-    Queue( int = 16 );
-    ~Queue();
+    QueueArray( int = 16 );
+    ~QueueArray();
 
     //  Accessor Functions
     int size() const;
@@ -42,12 +42,12 @@ class Queue {
 };
 
 /*************************************/
-/**********     Queue       **********/
+/**********     QueueArray       **********/
 /*************************************/
 
-//  Default Queue Constructor
+//  Default QueueArray Constructor
 template <typename Type>
-Queue<Type>::Queue(int n):
+QueueArray<Type>::QueueArray(int n):
 queue_capacity( n ),
 queue_size( 0 ),
 queue( new Type[n] ),
@@ -57,43 +57,43 @@ back_index( -1 )
   //  Empty Constructor
 }
 
-//  Queue Destructor
+//  QueueArray Destructor
 template <typename Type>
-Queue<Type>::~Queue() {
+QueueArray<Type>::~QueueArray() {
   delete[] queue;
 }
 
-/****** Queue Accessor Functions ******/
+/****** QueueArray Accessor Functions ******/
 
 //  Return the size of the queue
 template <typename Type>
-int Queue<Type>::size() const {
+int QueueArray<Type>::size() const {
   return queue_size;
 }
 
 //  Returns a boolean value stating if the queue is empty
 template <typename Type>
-bool Queue<Type>::empty() const {
+bool QueueArray<Type>::empty() const {
   return (queue_size == 0);
 }
 
 //  Return the element at the front of the queue
 template <typename Type>
-Type Queue<Type>::front() const {
+Type QueueArray<Type>::front() const {
   return queue[front_index];
 }
 
 //  Return the element at the back of the queue
 template <typename Type>
-Type Queue<Type>::back() const {
+Type QueueArray<Type>::back() const {
   return queue[back_index];
 }
 
-/****** Queue Mutator Functions  ******/
+/****** QueueArray Mutator Functions  ******/
 
 //  Push a new element to the back of the queue
 template <typename Type>
-void Queue<Type>::push(Type const &obj) {
+void QueueArray<Type>::push(Type const &obj) {
   if (queue_size == queue_capacity) return;
   //  Move back index forwards, accounting for array wraparound
   back_index = ++back_index % queue_capacity;
@@ -103,7 +103,7 @@ void Queue<Type>::push(Type const &obj) {
 
 //  Pop the element at the front of the list
 template <typename Type>
-void Queue<Type>::pop() {
+void QueueArray<Type>::pop() {
   if (empty()) return;
   //  Move front index forwards, accounting for array wraparound
   front_index = ++front_index % queue_capacity;
@@ -112,7 +112,7 @@ void Queue<Type>::pop() {
 
 //  Clears all the elements in the queue
 template <typename Type>
-void Queue<Type>::clear() {
+void QueueArray<Type>::clear() {
   delete[] queue;
   queue = new Type[queue_capacity];
 
@@ -123,7 +123,7 @@ void Queue<Type>::clear() {
 
 //  Print the queue on the Arduino serial monitor
 template <typename Type>
-void Queue<Type>::print_queue() {
+void QueueArray<Type>::print_queue() {
   if (empty()) return;
 
   int i = front_index;

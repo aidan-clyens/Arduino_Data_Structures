@@ -10,8 +10,8 @@ These are various data structures written in C++ designed specifically for use w
 List of data structures contained in this repo:
 - [Linked List](LinkedList)
 - [Vector](Vector)
-- [Queue based on Arrays](ArrayBasedQueue)
-- [Queue based on Linked List](ListBasedQueue)
+- [Queue using Arrays](QueueArray)
+- [Queue using Linked List](QueueList)
 - [Max Heap](MaxHeap)
 - [Hash Table](HashTable)
 

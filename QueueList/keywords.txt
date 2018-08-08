@@ -1,12 +1,12 @@
 ##############################
-# Queue Keywords
+# QueueList Keywords
 ##############################
 
 ##############################
 # Data Types (KEYWORD1)
 ##############################
 
-Queue	KEYWORD1
+QueueList	KEYWORD1
 
 ##############################
 # Functions (KEYWORD2)

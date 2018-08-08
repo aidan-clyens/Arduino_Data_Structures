@@ -1,5 +1,5 @@
 /***********************************************************/
-/*    Queue
+/*    QueueList
 /*
 /*    This is an implementation used a custom Linked List
 /*    class.
@@ -9,18 +9,18 @@
 /*    Aidan Clyens
 /*    May 17, 2018
 /***********************************************************/
-#ifndef QUEUE_ARDUINO_H
-#define QUEUE_ARDUINO_H
+#ifndef QUEUE_LIST_ARDUINO_H
+#define QUEUE_LIST_ARDUINO_H
 
 #include "Arduino.h"
 #include "LinkedList.h"
 
 template <typename Type>
-class Queue {
+class QueueList {
   public:
-    Queue();
-    Queue( Queue const & );
-    ~Queue();
+    QueueList();
+    QueueList( QueueList const & );
+    ~QueueList();
 
     //  Accessor Functions
     int size() const;
@@ -43,73 +43,73 @@ class Queue {
 /**********     Queue       **********/
 /*************************************/
 
-//  Default Queue Constructor
+//  Default QueueList Constructor
 template <typename Type>
-Queue<Type>::Queue() {
+QueueList<Type>::QueueList() {
   //  Empty Constructor
 }
 
-//  Queue Copy Constructor
+//  QueueList Copy Constructor
 template <typename Type>
-Queue<Type>::Queue(Queue<Type> const &copy) {
+QueueList<Type>::QueueList(QueueList<Type> const &copy) {
   queue = copy.queue;
 }
 
-//  Queue Destructor
+//  QueueList Destructor
 template <typename Type>
 Queue<Type>::~Queue() {
   queue.clear();
 }
 
-/****** Queue Accessor Functions ******/
+/****** QueueList Accessor Functions ******/
 
 //  Return the size of the queue
 template <typename Type>
-int Queue<Type>::size() const {
+int QueueList<Type>::size() const {
   return queue.size();
 }
 
 //  Returns a boolean value stating if the queue is empty
 template <typename Type>
-bool Queue<Type>::empty() const {
+bool QueueList<Type>::empty() const {
   return queue.empty();
 }
 
 //  Return the element at the front of the queue
 template <typename Type>
-Type Queue<Type>::front() const {
+Type QueueList<Type>::front() const {
   return queue.front();
 }
 
 //  Return the element at the back of the queue
 template <typename Type>
-Type Queue<Type>::back() const {
+Type QueueList<Type>::back() const {
   return queue.back();
 }
 
-/****** Queue Mutator Functions  ******/
+/****** QueueList Mutator Functions  ******/
 
 //  Push a new element to the back of the queue
 template <typename Type>
-void Queue<Type>::push(Type const &obj) {
+void QueueList<Type>::push(Type const &obj) {
   queue.push_back(obj);
 }
 
 //  Pop the element at the front of the list
 template <typename Type>
-void Queue<Type>::pop() {
+void QueueList<Type>::pop() {
   queue.pop_front();
 }
 
 //  Clears all the elements in the queue
 template <typename Type>
-void Queue<Type>::clear() {
+void QueueList<Type>::clear() {
   queue.clear();
 }
 
 //  Print the queue on the Arduino serial monitor
 template <typename Type>
-void Queue<Type>::print_queue() {
+void QueueList<Type>::print_queue() {
   queue.print_list();
 }
 

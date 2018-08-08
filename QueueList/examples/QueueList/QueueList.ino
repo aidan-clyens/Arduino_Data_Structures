@@ -1,13 +1,13 @@
 /****************************************************
- *  Queue Example
+ *  QueueList Example
  *
  *  Aidan Clyens
  *  May 17, 2018
  */
-#include <Queue.h>
+#include <QueueList.h>
 
-//  Create a queue of type 'int'
-Queue<int> queue;
+//  Create a QueueList of type 'int'
+QueueList<int> queue;
 
 void setup() {
   //  Push new elements to the queue
@@ -34,6 +34,10 @@ void setup() {
   Serial.println(queue.back());
   //  Print the linked queue to the serial monitor
   queue.print_queue();
+
+  //  Create a copy of the original queue
+  QueueList<int> queue_copy(queue);
+  queue_copy.print_queue();
 
   //  Clear all elements in the original queue
   queue.clear();
