@@ -12,39 +12,39 @@
 template <typename Type>
 class SearchTree {
   public:
-    SearchTree(); //  Done
-    ~SearchTree();  //  Done
+    SearchTree()
+    ~SearchTree();
 
     //  Size
-    bool empty() const; //  Done
-    int size() const; //  Done
-    int height() const; //  Done
+    bool empty() const;
+    int size() const;
+    int height() const;
 
     //  Modifiers
-    bool insert( Type const & );  //  Done
-    bool erase( Type const & ); //  Done, implement
-    void clear(); //  Done, implement
+    bool insert( Type const & );
+    bool erase( Type const & );
+    void clear();
 
     //  Misc.
-    void print(); //  Done
+    void print();
 
   private:
     class SearchNode {
       public:
-        SearchNode( Type const & ); //  Done
+        SearchNode( Type const & );
 
         //  Size
-        int height() const; //  Done
+        int height() const;
 
         //  Modifers
-        bool insert( Type const & ); //  Done
-        bool erase( Type const &, SearchNode *& );  //  Done, implement
+        bool insert( Type const & );
+        bool erase( Type const &, SearchNode *& );
         void clear();
 
         //  Misc.
-        bool is_leaf() const; //  Done
-        void print( int = 0 );  //  Done
-        int max( int, int ) const;  //  Done
+        bool is_leaf() const;
+        void print( int = 0 );
+        int max( int, int ) const;
 
         Type node_value;
         SearchNode* left_tree;

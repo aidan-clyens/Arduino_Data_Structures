@@ -1,0 +1,24 @@
+##############################
+# Search Tree Keywords
+##############################
+
+##############################
+# Data Types (KEYWORD1)
+##############################
+
+SearchTree  KEYWORD1
+SearchNode  KEYWORD1
+
+##############################
+# Functions (KEYWORD2)
+##############################
+
+empty       KEYWORD2
+size        KEYWORD2
+height      KEYWORD2
+insert      KEYWORD2
+erase       KEYWORD2
+clear       KEYWORD2
+print       KEYWORD2
+is_leaf     KEYWORD2
+max         KEYWORD2
