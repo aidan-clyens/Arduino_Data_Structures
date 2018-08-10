@@ -38,7 +38,8 @@ class SearchTree {
 
         //  Modifers
         bool insert( Type const & ); //  Done
-        bool erase( Type const & );  //  Done, implement
+        bool erase( Type const &, SearchNode *& );  //  Done, implement
+        void clear();
 
         //  Misc.
         bool is_leaf() const; //  Done
@@ -134,7 +135,13 @@ bool SearchTree<Type>::insert(Type const &obj) {
  */
 template <typename Type>
 bool SearchTree<Type>::erase(Type const &obj) {
-  return false;
+  if (empty()) return false;
+
+  if (root_node->erase(obj, root_node)) {
+    --tree_size;
+
+    return true;
+  }
 }
 
 /*
@@ -142,7 +149,7 @@ bool SearchTree<Type>::erase(Type const &obj) {
  */
 template <typename Type>
 void SearchTree<Type>::clear() {
-
+  root_node->clear();
 }
 
 /***************************************
@@ -241,8 +248,54 @@ bool SearchTree<Type>::SearchNode::insert(Type const &obj) {
  * erase
  */
 template <typename Type>
-bool SearchTree<Type>::SearchNode::erase(Type const &obj) {
-  return false;
+bool SearchTree<Type>::SearchNode::erase(Type const &obj, SearchNode *&to_this) {
+  if (obj < node_value) {
+    if (left_tree != nullptr) {
+      if (left_tree->erase(obj, left_tree)) {
+        tree_height = max(left_tree->height(), right_tree->height()) + 1;
+        return true;
+      } else {
+        return false;
+      }
+    }
+  } else if (obj > node_value) {
+    if (right_tree != nullptr) {
+      if (right_tree->erase(obj, right_tree)) {
+        tree_height = max(left_tree->height(), right_tree->height()) + 1;
+        return true;
+      } else {
+        return false;
+      }
+    }
+  } else {
+    if (is_leaf()) {
+      to_this = nullptr;
+      delete this;
+    } else if (left_tree == nullptr) {
+      to_this = right_tree;
+      delete this;
+    } else if (right_tree == nullptr) {
+      to_this = left_tree;
+      delete this;
+    } else {
+      node_value = right_tree->node_value;
+      right_tree->erase(node_value, right_tree);
+      tree_height = max(left_tree->height(), right_tree->height()) + 1;
+    }
+
+    return this;
+  }
+}
+
+/*
+ * clear
+ */
+template <typename Type>
+void SearchTree<Type>::SearchNode::clear() {
+  if (left_tree != nullptr) left_tree->clear();
+  if (right_tree != nullptr) right_tree->clear();
+
+  delete this;
 }
 
 /***************************************
