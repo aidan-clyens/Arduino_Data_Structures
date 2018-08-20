@@ -12,7 +12,7 @@
 template <typename Type>
 class SearchTree {
   public:
-    SearchTree()
+    SearchTree();
     ~SearchTree();
 
     //  Size
@@ -43,8 +43,8 @@ class SearchTree {
 
         //  Misc.
         bool is_leaf() const;
-        void print( int = 0 );
         int max( int, int ) const;
+        void print( int = 0 );
 
         Type node_value;
         SearchNode* left_tree;
