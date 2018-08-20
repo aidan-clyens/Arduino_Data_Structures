@@ -14,6 +14,7 @@ List of data structures contained in this repo:
 - [Queue using Linked List](QueueList)
 - [Max Heap](MaxHeap)
 - [Hash Table](HashTable)
+- [Binary Search Tree](SearchTree)
 
 ## Author
 Copyright 2018 Aidan Clyens
