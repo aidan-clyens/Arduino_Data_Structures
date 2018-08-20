@@ -16,6 +16,7 @@ SearchNode  KEYWORD1
 empty       KEYWORD2
 size        KEYWORD2
 height      KEYWORD2
+find        KEYWORD2
 insert      KEYWORD2
 erase       KEYWORD2
 clear       KEYWORD2

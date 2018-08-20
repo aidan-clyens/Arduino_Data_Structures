@@ -7,34 +7,20 @@
 #ifndef SEARCH_TREE_H
 #define SEARCH_TREE_H
 
-// #include "Arduino.h"
+#include "Arduino.h"
 
 template <typename Type>
 class SearchTree {
   public:
-    SearchTree();
-    ~SearchTree();
-
-    //  Size
-    bool empty() const;
-    int size() const;
-    int height() const;
-
-    //  Modifiers
-    bool insert( Type const & );
-    bool erase( Type const & );
-    void clear();
-
-    //  Misc.
-    void print();
-
-  private:
     class SearchNode {
       public:
         SearchNode( Type const & );
 
         //  Size
         int height() const;
+
+        //  Element Access
+        SearchNode *find( Type const & );
 
         //  Modifers
         bool insert( Type const & );
@@ -52,7 +38,26 @@ class SearchTree {
         int tree_height;
     };
 
+    SearchTree();
+    ~SearchTree();
 
+    //  Size
+    bool empty() const;
+    int size() const;
+    int height() const;
+
+    //  Element Access
+    SearchNode *find( Type const & );
+
+    //  Modifiers
+    bool insert( Type const & );
+    bool erase( Type const & );
+    void clear();
+
+    //  Misc.
+    void print();
+
+  private:
     SearchNode* root_node;
     int tree_size;
 };
@@ -107,6 +112,19 @@ int SearchTree<Type>::size() const {
 template <typename Type>
 int SearchTree<Type>::height() const {
   return root_node->height();
+}
+
+/***************************************
+*        Element Access Functions
+****************************************/
+/*
+ * find
+ */
+template <typename Type>
+typename SearchTree<Type>::SearchNode *SearchTree<Type>::find(Type const &obj) {
+  if (empty()) return nullptr;
+
+  return root_node->find(obj);
 }
 
 /***************************************
@@ -191,6 +209,31 @@ tree_height( 0 )
 template <typename Type>
 int SearchTree<Type>::SearchNode::height() const {
   return (this == nullptr) ? -1 : tree_height;
+}
+
+/***************************************
+*        Element Access Functions
+****************************************/
+/*
+ * find
+ */
+template <typename Type>
+typename SearchTree<Type>::SearchNode *SearchTree<Type>::SearchNode::find(Type const &obj) {
+  if (obj == node_value) {
+    return this;
+  } else if (obj < node_value) {
+    if (left_tree != nullptr) {
+      return left_tree->find(obj);
+    } else {
+      return nullptr;
+    }
+  } else if (obj > node_value) {
+    if (right_tree != nullptr) {
+      return right_tree->find(obj);
+    } else {
+      return nullptr;
+    }
+  }
 }
 
 /***************************************
@@ -317,10 +360,10 @@ void SearchTree<Type>::SearchNode::print(int indent) {
   if (this != nullptr) {
     if (indent) {
       for (int i = 0; i < indent; ++i) {
-        std::cout << " ";
+        Serial.print(" ");
       }
     }
-    std::cout << node_value << "\n ";
+    Serial.println(node_value);
     if (left_tree != nullptr) left_tree->print(indent-5);
     if (right_tree != nullptr) right_tree->print(indent+5);
   }
