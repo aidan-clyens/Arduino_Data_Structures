@@ -2,7 +2,7 @@
 /*    Search Tree
 /*
 /*    Aidan Clyens
-/*    August 8, 2018
+/*    August 20, 2018
 /***********************************************************/
 #ifndef SEARCH_TREE_H
 #define SEARCH_TREE_H
