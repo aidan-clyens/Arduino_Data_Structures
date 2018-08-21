@@ -10,9 +10,11 @@ Constructors:
 - Default constructor
 - Copy constructor
 
-Accessor Functions:
+Size Accessor Functions:
 - int size
 - bool empty
+
+Element Access Functions:
 - Type front
 - Type back
 - Node* begin
@@ -20,15 +22,15 @@ Accessor Functions:
 - Node* rbegin
 - Node* rend
 
-Mutator Functions:
+Modifier Functions:
 - void push_front
 - void push_back
 - void pop_front
 - void pop_back
 - void clear
 
-Misc:
-- void print_list
+Misc. Functions:
+- void print
 
 ## Author
 Copyright (c) 2018 Aidan Clyens

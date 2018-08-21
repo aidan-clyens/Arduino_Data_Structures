@@ -36,15 +36,15 @@ void setup() {
   Serial.print("back = ");
   Serial.println(list.back());
   //  Print the linked list to the serial monitor
-  list.print_list();
+  list.print();
 
   //  Create a copy of the original linked list
   LinkedList<int> list_copy(list);
-  list_copy.print_list();
+  list_copy.print();
 
   //  Clear all elements in the original linked list
   list.clear();
-  list.print_list();
+  list.print();
 
 }
 

@@ -15,7 +15,7 @@ Size Accessor Functions:
 - int height
 
 Element Access Functions:
-- SearchNode *find
+- SearchNode \*find
 
 Modifier Functions:
 - void insert

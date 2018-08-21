@@ -7,7 +7,7 @@
 ##############################
 
 LinkedList	KEYWORD1
-Node		          KEYWORD1
+Node		KEYWORD1
 
 ##############################
 # Functions (KEYWORD2)
@@ -29,4 +29,4 @@ push_back	  KEYWORD2
 pop_front	  KEYWORD2
 pop_back	  KEYWORD2
 clear		    KEYWORD2
-print_list	KEYWORD2
+print		KEYWORD2

@@ -12,7 +12,7 @@
 #ifndef LINKED_LIST_ARDUINO_H
 #define  LINKED_LIST_ARDUINO_H
 
-// #include "Arduino.h"
+#include "Arduino.h"
 
 template <typename Type>
 class LinkedList {
@@ -21,7 +21,7 @@ class LinkedList {
       public:
         Node( Type const & = Type(), Node * = nullptr, Node * = nullptr );
 
-        //  Accessor Functions
+        //  Element Access
         Type value() const;
         Node* next() const;
         Node* previous() const;
@@ -35,9 +35,11 @@ class LinkedList {
     LinkedList( LinkedList const & );
     ~LinkedList();
 
-    //  Accessor Functions
+    //  Size
     int size() const;
     bool empty() const;
+
+    //  Element Access
     Type front() const;
     Type back() const;
     Node* begin() const;
@@ -46,14 +48,15 @@ class LinkedList {
     Node* rend() const;
     Node* find() const;
 
-    //  Mutator Functions
+    //  Modifiers
     void push_front( Type const & );
     void push_back( Type const & );
     void pop_front();
     void pop_back();
     void clear();
 
-    void print_list();
+    //  Misc.
+    void print();
 
   private:
     int list_size;
@@ -61,11 +64,15 @@ class LinkedList {
     Node *list_tail;
 };
 
-/*************************************/
-/**********   LinkedList    **********/
-/*************************************/
-
-//  Default LinkedList Constructor
+/***********************************************/
+/***************   LinkedList    ***************/
+/***********************************************/
+/***************************************
+*           Constructors
+****************************************/
+/*
+ * Linked List Default Constructor
+ */
 template <typename Type>
 LinkedList<Type>::LinkedList():
 list_head( new Node() ),
@@ -75,7 +82,10 @@ list_size( 0 )
   list_head->next_node = list_tail;
   list_tail->previous_node = list_head;
 }
-//  LinkedList Copy Constructor
+
+/*
+ * Linked List Copy Constructor
+ */
 template <typename Type>
 LinkedList<Type>::LinkedList(LinkedList<Type> const &list):
 list_head( new Node() ),
@@ -89,7 +99,10 @@ list_size( 0 )
     push_back(ptr->value());
   }
 }
-// LinkedList Destructor
+
+/*
+ * Linked List Destructor
+ */
 template <typename Type>
 LinkedList<Type>::~LinkedList() {
   clear();
@@ -98,52 +111,91 @@ LinkedList<Type>::~LinkedList() {
   delete list_tail;
 }
 
-/****** LinkedList Accessor Functions ******/
-
-//  Returns the linked list size
+/***************************************
+          Public Size Functions
+****************************************/
+/*
+ * size
+ * Returns the linked list size
+ */
 template <typename Type>
 int LinkedList<Type>::size() const {
   return list_size;
 }
-//  Returns a boolean value stating if the linked list is empty
+
+/*
+ * empty
+ * Returns a boolean value stating if the linked list is empty
+ */
 template <typename Type>
 bool LinkedList<Type>::empty() const {
   return (list_size == 0);
 }
-//  Returns the element at the front of the linked list
+
+/***************************************
+*     Public Element Access Functions
+****************************************/
+/*
+ * front
+ * Returns the element at the front of the linked list
+ */
 template <typename Type>
 Type LinkedList<Type>::front() const {
   return (!empty()) ? begin()->value() : Type();
 }
-//  Returns the element at the end of the linked list
+
+/*
+ * back
+ * Returns the element at the end of the linked list
+ */
 template <typename Type>
 Type LinkedList<Type>::back() const {
   return (!empty()) ? rbegin()->value() : Type();
 }
-//  Returns the address of the first node in the linked list
+
+/*
+ * begin
+ * Returns the address of the first node in the linked list
+ */
 template <typename Type>
 typename LinkedList<Type>::Node *LinkedList<Type>::begin() const {
   return list_head->next();
 }
-//  Returns the address of the tail sentinel node of the linked list_tail
+
+/*
+ * end
+ * Returns the address of the tail sentinel node of the linked list_tail
+ */
 template <typename Type>
 typename LinkedList<Type>::Node *LinkedList<Type>::end() const {
   return list_tail;
 }
-//  Returns the address of the last node in the linked list
+
+/*
+ * rbegin
+ * Returns the address of the last node in the linked list
+ */
 template <typename Type>
 typename LinkedList<Type>::Node *LinkedList<Type>::rbegin() const {
   return list_tail->previous();
 }
-//  Returns the address of the head sentinel node of the linked list_tail
+
+/*
+ * rend
+ * Returns the address of the head sentinel node of the linked list_tail
+ */
 template <typename Type>
 typename LinkedList<Type>::Node *LinkedList<Type>::rend() const {
   return list_head;
 }
 
-/****** LinkedList Mutator Functions  ******/
-
-//  Pushs a new object to the front of the linked list
+/***************************************
+*       Public Modifier Functions
+****************************************/
+/*
+ * push_front
+ * Pushs a new object to the front of the linked list
+ */
 template <typename Type>
 void LinkedList<Type>::push_front(Type const &obj) {
   //  Store current first node in the list and create a new empty node
@@ -154,7 +206,11 @@ void LinkedList<Type>::push_front(Type const &obj) {
   temp->previous_node = node;
   ++list_size;
 }
-//  Pushs a new object to the back of the linked list
+
+/*
+ * push_back
+ * Pushs a new object to the back of the linked list
+ */
 template <typename Type>
 void LinkedList<Type>::push_back(Type const &obj) {
   //  Store the current last node in the list and create a new empty node
@@ -165,7 +221,11 @@ void LinkedList<Type>::push_back(Type const &obj) {
   temp->next_node = node;
   ++list_size;
 }
-//  Pops the object from the front of the linked list
+
+/*
+ * pop_front
+ * Pops the object from the front of the linked list
+ */
 template <typename Type>
 void LinkedList<Type>::pop_front() {
   if (empty()) return;
@@ -176,7 +236,11 @@ void LinkedList<Type>::pop_front() {
   delete temp;
   --list_size;
 }
-//  Pops the object from the back of the linked list
+
+/*
+ * pop_back
+ * Pops the object from the back of the linked list
+ */
 template <typename Type>
 void LinkedList<Type>::pop_back() {
   if (empty()) return;
@@ -187,27 +251,42 @@ void LinkedList<Type>::pop_back() {
   delete temp;
   --list_size;
 }
-//  Deletes all of the elements in the linked list
+
+/*
+ * clear
+ * Deletes all of the elements in the linked list
+ */
 template <typename Type>
 void LinkedList<Type>::clear() {
   while (!empty()) pop_front();
 }
-//  Prints the list using Arduino serial communication
+
+/***************************************
+*         Public Misc. Functions
+****************************************/
+/*
+ * print
+ * Prints the list using Arduino serial communication
+ */
 template <typename Type>
-void LinkedList<Type>::print_list() {
-  std::cout << "head -> ";
+void LinkedList<Type>::print() {
+  Serial.print("head -> ");
   for (typename LinkedList<Type>::Node *ptr = begin(); ptr != end(); ptr = ptr->next()) {
-    std::cout << ptr->value();
-    std::cout << " -> ";
+    Serial.print(ptr->value());
+    Serial.print(" -> ");
   }
-  std::cout << "tail" << std::endl;
+  Serial.println("tail");
 }
 
-/*******************************/
-/**********   Node    **********/
-/*******************************/
-
-//  Default Node Constructor
+/***********************************************/
+/***************       Node      ***************/
+/***********************************************/
+/***************************************
+*           Constructors
+****************************************/
+/*
+ * Default Node Constructor
+ */
 template <typename Type>
 LinkedList<Type>::Node::Node(Type const &obj, typename LinkedList<Type>::Node *next, typename LinkedList<Type>::Node *previous):
 node_value( obj ),
@@ -217,19 +296,31 @@ previous_node( previous )
   //  Empty
 }
 
-/****** Node Accessor Functions ******/
-
-//  Returns the node value
+/***************************************
+*         Element Access Functions
+****************************************/
+/*
+ * value
+ * Returns the node value
+ */
 template <typename Type>
 Type LinkedList<Type>::Node::value() const {
   return node_value;
 }
-//  Returns the address of the next node to the current node
+
+/*
+ * next
+ * Returns the address of the next node to the current node
+ */
 template <typename Type>
 typename LinkedList<Type>::Node *LinkedList<Type>::Node::next() const {
   return next_node;
 }
-//  Returns the address of the previous node to the current node
+
+/*
+ * previous
+ * Returns the address of the previous node to the current node
+ */
 template <typename Type>
 typename LinkedList<Type>::Node *LinkedList<Type>::Node::previous() const {
   return previous_node;
