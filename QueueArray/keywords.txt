@@ -19,4 +19,4 @@ back		    KEYWORD2
 push    	  KEYWORD2
 pop     	  KEYWORD2
 clear		    KEYWORD2
-print_queue	KEYWORD2
+print		KEYWORD2

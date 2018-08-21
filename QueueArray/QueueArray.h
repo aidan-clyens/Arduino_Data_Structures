@@ -9,8 +9,8 @@
 /*    Aidan Clyens
 /*    May 23, 2018
 /***********************************************************/
-#ifndef QUEUE_ARRAY_ARDUINO_H
-#define QUEUE_ARRAY_ARDUINO_H
+#ifndef QUEUE_ARRAY_H
+#define QUEUE_ARRAY_H
 
 #include "Arduino.h"
 
@@ -20,18 +20,21 @@ class QueueArray {
     QueueArray( int = 16 );
     ~QueueArray();
 
-    //  Accessor Functions
+    //  Size
     int size() const;
     bool empty() const;
+
+    //  Element Access
     Type front() const;
     Type back() const;
 
-    //  Mutator Functions
+    //  Modifiers
     void push( Type const & );
     void pop();
     void clear();
 
-    void print_queue();
+    //  Misc.
+    void print();
 
   private:
     Type* queue;
@@ -41,11 +44,12 @@ class QueueArray {
     int back_index;
 };
 
-/*************************************/
-/**********     QueueArray       **********/
-/*************************************/
-
-//  Default QueueArray Constructor
+/***************************************
+*           Constructors
+****************************************/
+/*
+ * Default QueueArray Constructor
+ */
 template <typename Type>
 QueueArray<Type>::QueueArray(int n):
 queue_capacity( n ),
@@ -57,41 +61,63 @@ back_index( -1 )
   //  Empty Constructor
 }
 
-//  QueueArray Destructor
+/*
+ * QueueArray Destructor
+ */
 template <typename Type>
 QueueArray<Type>::~QueueArray() {
   delete[] queue;
 }
 
-/****** QueueArray Accessor Functions ******/
-
-//  Return the size of the queue
+/***************************************
+*         Public Size Functions
+****************************************/
+/*
+ * size
+ * Return the size of the queue
+ */
 template <typename Type>
 int QueueArray<Type>::size() const {
   return queue_size;
 }
 
-//  Returns a boolean value stating if the queue is empty
+/*
+ * empty
+ * Returns a boolean value stating if the queue is empty
+ */
 template <typename Type>
 bool QueueArray<Type>::empty() const {
   return (queue_size == 0);
 }
 
-//  Return the element at the front of the queue
+/***************************************
+*     Public Element Access Functions
+****************************************/
+/*
+ * front
+ * Return the element at the front of the queue
+ */
 template <typename Type>
 Type QueueArray<Type>::front() const {
   return queue[front_index];
 }
 
-//  Return the element at the back of the queue
+/*
+ * back
+ * Return the element at the back of the queue
+ */
 template <typename Type>
 Type QueueArray<Type>::back() const {
   return queue[back_index];
 }
 
-/****** QueueArray Mutator Functions  ******/
-
-//  Push a new element to the back of the queue
+/***************************************
+*       Public Modifier Functions
+****************************************/
+/*
+ * push
+ * Push a new element to the back of the queue
+ */
 template <typename Type>
 void QueueArray<Type>::push(Type const &obj) {
   if (queue_size == queue_capacity) return;
@@ -101,7 +127,10 @@ void QueueArray<Type>::push(Type const &obj) {
   ++queue_size;
 }
 
-//  Pop the element at the front of the list
+/*
+ * pop
+ * Pop the element at the front of the list
+ */
 template <typename Type>
 void QueueArray<Type>::pop() {
   if (empty()) return;
@@ -110,7 +139,10 @@ void QueueArray<Type>::pop() {
   --queue_size;
 }
 
-//  Clears all the elements in the queue
+/*
+ * clear
+ * Clears all the elements in the queue
+ */
 template <typename Type>
 void QueueArray<Type>::clear() {
   delete[] queue;
@@ -121,9 +153,15 @@ void QueueArray<Type>::clear() {
   back_index = -1;
 }
 
-//  Print the queue on the Arduino serial monitor
+/***************************************
+*         Public Misc. Functions
+****************************************/
+/*
+ * print
+ * Print the queue on the Arduino serial monitor
+ */
 template <typename Type>
-void QueueArray<Type>::print_queue() {
+void QueueArray<Type>::print() {
   if (empty()) return;
 
   int i = front_index;

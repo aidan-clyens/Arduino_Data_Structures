@@ -88,7 +88,7 @@ SearchTree<Type>::~SearchTree() {
 }
 
 /***************************************
-*             Size Functions
+*         Public Size Functions
 ****************************************/
 /*
  * empty
@@ -115,7 +115,7 @@ int SearchTree<Type>::height() const {
 }
 
 /***************************************
-*        Element Access Functions
+*     Public Element Access Functions
 ****************************************/
 /*
  * find
@@ -128,7 +128,7 @@ typename SearchTree<Type>::SearchNode *SearchTree<Type>::find(Type const &obj) {
 }
 
 /***************************************
-*           Modifier Functions
+*       Public Modifier Functions
 ****************************************/
 /*
  * insert

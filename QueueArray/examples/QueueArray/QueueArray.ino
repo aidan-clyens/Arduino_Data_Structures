@@ -10,6 +10,8 @@
 QueueArray<int> queue;
 
 void setup() {
+  Serial.begin(9600);
+  
   //  Push new elements to the queue
   queue.push(10);
   queue.push(20);
@@ -22,7 +24,6 @@ void setup() {
   queue.pop();
   queue.pop();
 
-  Serial.begin(9600);
   //  Print the number of elements in the queue
   Serial.print("size = ");
   Serial.println(queue.size());
@@ -33,11 +34,11 @@ void setup() {
   Serial.print("back = ");
   Serial.println(queue.back());
   //  Print the linked queue to the serial monitor
-  queue.print_queue();
+  queue.print();
 
   //  Clear all elements in the original queue
   queue.clear();
-  queue.print_queue();
+  queue.print();
 
 }
 

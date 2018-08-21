@@ -10,19 +10,21 @@ W.I.P.
 Constructors:
 - Default constructor
 
-Accessor Functions:
+Size Accessor Functions:
 - int size
 - bool empty
+
+Element Access Functions:
 - Type front
 - Type back
 
-Mutator Functions:
+Modifier Functions:
 - void push
 - void pop
 - void clear
 
-Misc:
-- void print_queue
+Misc. Functions:
+- void print
 
 ## Author
-Copyright (c) 2018 Aidan Clyens
+Copyright 2018 Aidan Clyens
