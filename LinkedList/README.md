@@ -37,4 +37,4 @@ Misc. Functions:
 - void print
 
 ## Author
-Copyright (c) 2018 Aidan Clyens
+Copyright 2018 Aidan Clyens
