@@ -2,7 +2,7 @@
 This is a Doubly Linked List class with head and tail sentinel nodes, which was written using C++ to be used with Arduino sketchs.
 
 <br />
-<img src="./../docs/images/linked-list.png" width="500px" />
+<img src="./../docs/images/linked-list.png" width="700px" />
 <br />
 
 ## Getting Started
