@@ -12,5 +12,10 @@ int main() {
 
     tree.print();
 
+    std::cout << "size = " << tree.size() << std::endl;
+    std::cout << "empty = " << tree.empty() << std::endl;
+    std::cout << "height = " << tree.height() << std::endl;
+    std::cout << "is_search_tree = " << tree.is_search_tree() << std::endl;
+
     return 0;
 }

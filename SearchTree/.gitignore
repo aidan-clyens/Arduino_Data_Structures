@@ -1,2 +1,7 @@
 lib/SearchTree.o
 examples/example
+src/tests/CMakeCache.txt
+src/tests/CMakeFiles
+src/tests/Makefile
+src/tests/cmake_install.cmake
+src/tests/runTest

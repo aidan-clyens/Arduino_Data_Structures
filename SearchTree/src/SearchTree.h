@@ -35,6 +35,7 @@ class SearchTree {
         bool is_leaf() const;
         int max( int, int ) const;
         void print( int = 0 );
+        bool is_search_tree();
 
         Type node_value;
         SearchNode* left_tree;
@@ -51,6 +52,7 @@ class SearchTree {
     int height() const;
 
     //  Element Access
+    Type top();
     SearchNode *find( Type const & );
 
     //  Modifiers
@@ -60,6 +62,7 @@ class SearchTree {
 
     //  Misc.
     void print();
+    bool is_search_tree();
 
   private:
     SearchNode* root_node;
@@ -115,12 +118,18 @@ int SearchTree<Type>::size() const {
  */
 template <typename Type>
 int SearchTree<Type>::height() const {
-  return root_node->height();
+  if (root_node == nullptr) return -1;
+  else return root_node->height();
 }
 
 /***************************************
 *     Public Element Access Functions
 ****************************************/
+template <typename Type>
+Type SearchTree<Type>::top() {
+    if (root_node != nullptr) return root_node->node_value;
+}
+
 /*
  * find
  */
@@ -171,7 +180,7 @@ bool SearchTree<Type>::erase(Type const &obj) {
  */
 template <typename Type>
 void SearchTree<Type>::clear() {
-  root_node->clear();
+  if (root_node != nullptr) root_node->clear();
 }
 
 /***************************************
@@ -183,6 +192,12 @@ void SearchTree<Type>::clear() {
 template <typename Type>
 void SearchTree<Type>::print() {
   root_node->print(6*height());
+}
+
+template <typename Type>
+bool SearchTree<Type>::is_search_tree() {
+    if (root_node != nullptr) root_node->is_search_tree();
+    else return true;
 }
 
 /***********************************************/
@@ -388,6 +403,19 @@ void SearchTree<Type>::SearchNode::print(int indent) {
 template <typename Type>
 int SearchTree<Type>::SearchNode::max(int lhs, int rhs) const {
   return (lhs > rhs) ? lhs : rhs;
+}
+
+template <typename Type>
+bool SearchTree<Type>::SearchNode::is_search_tree() {
+    if (left_tree != nullptr) {
+        if (left_tree->node_value > node_value) return false;
+    }
+
+    if (right_tree != nullptr) {
+        if (right_tree->node_value < node_value) return false;
+    }
+
+    return true;
 }
 
 #endif
