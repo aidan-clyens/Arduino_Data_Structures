@@ -1,0 +1,20 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/aidanc/test/Arduino_Data_Structures/HashTable/src/HashTable.h
+Arduino.h
+/home/aidanc/test/Arduino_Data_Structures/HashTable/src/Arduino.h
+iostream
+-
+
+/home/aidanc/test/Arduino_Data_Structures/HashTable/src/tests/HashTableTest.cpp
+gtest/gtest.h
+-
+../HashTable.h
+/home/aidanc/test/Arduino_Data_Structures/HashTable/src/HashTable.h
+
