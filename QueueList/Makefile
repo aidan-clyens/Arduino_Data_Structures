@@ -14,3 +14,6 @@ example:
 $(NAME).o:
 	if [ -d $(LIB)/$(NAME).o ]; then rm -f $(LIB)/$(NAME).o; fi
 	$(CC) $(CFLAGS) -o $(LIB)/$(NAME).o $(INC)/* $(SRC)/$(NAME).h
+
+clean:
+	if [ -d $(EX)/example ]; then rm -f $(EX)/example; fi

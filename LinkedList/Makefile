@@ -19,3 +19,6 @@ test:
 	cmake $(TESTS)/CMakeLists.txt
 	$(MAKE) -C $(TESTS)
 	$(TESTS)/runTest
+
+clean:
+	if [ -d $(EX)/example ]; then rm -f $(EX)/example; fi
